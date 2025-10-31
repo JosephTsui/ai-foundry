@@ -161,10 +161,15 @@ Answer:"""
 ### Cost Optimization
 ```python
 # Count tokens before sending
-from tiktoken import encoding_for_model
-
-encoder = encoding_for_model("gpt-4o")
-token_count = len(encoder.encode(your_text))
+# Note: Install tiktoken first: pip install tiktoken
+try:
+    from tiktoken import encoding_for_model
+    
+    encoder = encoding_for_model("gpt-4o")
+    token_count = len(encoder.encode(your_text))
+except ImportError:
+    # Fallback: rough estimation (1 token ≈ 4 characters)
+    token_count = len(your_text) // 4
 ```
 
 ## Prompt Engineering Patterns
@@ -345,6 +350,17 @@ import time
 from collections import deque
 
 class RateLimiter:
+    """
+    Simple rate limiter to prevent exceeding API rate limits.
+    
+    Usage:
+        limiter = RateLimiter(max_calls_per_minute=60)
+        limiter.wait_if_needed()  # Call before each API request
+        make_api_call()
+    
+    Args:
+        max_calls_per_minute: Maximum number of API calls allowed per minute
+    """
     def __init__(self, max_calls_per_minute):
         self.max_calls = max_calls_per_minute
         self.calls = deque()

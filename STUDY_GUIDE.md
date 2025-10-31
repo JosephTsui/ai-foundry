@@ -293,7 +293,7 @@ Always delete resource groups when finished with exercises to avoid ongoing char
 ## Additional Resources
 
 ### Official Documentation
-- [Azure AI Foundry Documentation](https://learn.microsoft.com/azure/ai-studio/)
+- [Azure AI Foundry Documentation](https://learn.microsoft.com/azure/ai-studio/) *(Note: Documentation is in transition from AI Studio to AI Foundry naming)*
 - [Azure OpenAI Service Documentation](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft Learn Training Paths](https://learn.microsoft.com/training/paths/create-custom-copilots-ai-studio/)
 
