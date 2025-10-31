@@ -270,7 +270,7 @@ Always delete resource groups when finished with exercises to avoid ongoing char
 ## Learning Path Recommendations
 
 ### For Beginners
-1. Complete Exercise 1 (Explore AI Studio)
+1. Complete Exercise 1 (Explore Azure AI Foundry)
 2. Complete Exercise 2 (Model Catalog)
 3. Complete Exercise 3 (Prompt Flow Chat)
 4. Practice with chat playground

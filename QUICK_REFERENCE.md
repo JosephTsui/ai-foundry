@@ -341,8 +341,8 @@ credential = DefaultAzureCredential()
 
 ### Rate Limiting Client-Side
 ```python
+import time
 from collections import deque
-from time import time
 
 class RateLimiter:
     def __init__(self, max_calls_per_minute):
@@ -350,7 +350,7 @@ class RateLimiter:
         self.calls = deque()
     
     def wait_if_needed(self):
-        now = time()
+        now = time.time()
         # Remove calls older than 1 minute
         while self.calls and self.calls[0] < now - 60:
             self.calls.popleft()
@@ -359,7 +359,7 @@ class RateLimiter:
             sleep_time = 60 - (now - self.calls[0])
             time.sleep(sleep_time)
         
-        self.calls.append(time())
+        self.calls.append(now)
 ```
 
 ## Monitoring and Logging
@@ -464,7 +464,7 @@ def test_end_to_end():
 - [Tiktoken](https://github.com/openai/tiktoken) - Token counting
 
 ### Community
-- [Azure AI Discord](https://discord.gg/azure-ai)
+- [Microsoft Q&A - Azure AI](https://learn.microsoft.com/answers/tags/387/azure-ai-services)
 - [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/ai-azure-ai-services/ct-p/Azure-AI-Services)
 - [Stack Overflow - Azure AI](https://stackoverflow.com/questions/tagged/azure-ai)
 
